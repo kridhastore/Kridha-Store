@@ -20,7 +20,7 @@ const CollectionCard = ({
       }`}
       {...rest}
     >
-      <Link to={`/collections/${slug}`} key={_id} className="w-full">
+      <Link to={`/collections/${slug}/${_id}`} key={_id} className="w-full">
         <img
           src={image}
           alt={slug}
