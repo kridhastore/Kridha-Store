@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@layer base {
+  h1 {
+    font-family: "Great Vibes", cursive;
+  }
+}

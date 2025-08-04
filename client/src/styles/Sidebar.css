@@ -1,0 +1,25 @@
+@keyframes slideInSidebar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutSidebar {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slidein {
+  animation: slideInSidebar 0.2s ease-out forwards;
+}
+
+.animate-slideout {
+  animation: slideOutSidebar 0.2s ease-in forwards;
+}
