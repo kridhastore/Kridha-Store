@@ -4,19 +4,28 @@ import connectDB from "./config/db";
 import routes from "./routes/routes";
 
 const app = express();
+
 connectDB();
+
+const allowedOrigins = [
+  "https://kridhastore.in",
+  "https://kridhastore.vercel.app",
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
-// app.use(
-//   cors({
-//     origin: "https://kridhastore.in", // your frontend domain
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true, // if you use cookies/auth
-//   })
-// );
-
-app.use(cors());
 app.use("/api", routes);
+
+app.get("/", (_req, res) => {
+  res.send("API is running");
+});
 
 export default app;
