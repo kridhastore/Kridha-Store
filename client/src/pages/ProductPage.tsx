@@ -1,75 +1,29 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Spinner from "../components/Spinner";
-
-interface Review {
-  rating: number;
-  comment: string;
-  date: string;
-  reviewerName: string;
-  reviewerEmail: string;
-}
-
-interface Product {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  tags: string[];
-  brand: string;
-  sku: string;
-  weight: number;
-  dimensions: {
-    width: number;
-    height: number;
-    depth: number;
-  };
-  warrantyInformation: string;
-  shippingInformation: string;
-  availabilityStatus: string;
-  reviews: Review[];
-  returnPolicy: string;
-  minimumOrderQuantity: number;
-  meta: {
-    createdAt: string;
-    updatedAt: string;
-    barcode: string;
-    qrCode: string;
-  };
-  thumbnail: string;
-  images: string[];
-}
+import type { ProductInterface } from "../store/types";
+import { fetchProducts } from "../store/fetch";
 
 const ProductDetail = () => {
-  const [product, setProduct] = useState<Product | null>(null);
+  const [product, setProduct] = useState<ProductInterface | null>(null);
   const [mainImage, setMainImage] = useState<string>("");
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL;
+    const getProducts = async () => {
+      const data = await fetchProducts(); // ✅ wait for the Promise
 
-    const fetchProduct = async () => {
-      try {
-        const response = await axios.get(`${apiUrl}/products`);
-        const foundProduct: Product | undefined = response.data.products.find(
-          (item: Product) => item.id === Number(id)
-        );
-        if (foundProduct) {
-          setProduct(foundProduct);
-          setMainImage(foundProduct.images[0]);
+      if (data) {
+        const product = data.find((item) => item._id === id); // ✅ find on array
+        if (product) {
+          setProduct(product);
+          setMainImage(product.images[0]);
         }
-      } catch (error) {
-        console.error("Error fetching products:", error);
       }
     };
 
-    if (id) fetchProduct();
+    getProducts();
   }, [id]);
 
   if (!product)
@@ -84,26 +38,34 @@ const ProductDetail = () => {
       {/* Product Section */}
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
         {/* Product Image + Thumbnails */}
+        {/* Product Image + Thumbnails */}
         <div className="flex flex-col items-center">
-          <img
-            src={mainImage}
-            alt={product.title}
-            className="object-cover w-72 h-72 rounded-xl md:w-96 md:h-96"
-          />
+          {/* Main Image */}
+          <div className="relative w-full max-w-lg">
+            <img
+              src={mainImage}
+              alt={product.title}
+              className="object-cover w-full aspect-square rounded-2xl shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+            />
+          </div>
+
+          {/* Thumbnails */}
           {product.images.length > 1 && (
-            <div className="grid grid-cols-4 gap-4 mt-4 w-full max-w-md">
+            <div className="flex gap-4 w-full mt-6 overflow-x-auto max-w-lg scrollbar-hide">
               {product.images.map((image, index) => (
                 <div
                   key={index}
                   onClick={() => setMainImage(image)}
-                  className={`overflow-hidden rounded-lg cursor-pointer transition hover:ring-2 hover:ring-orange-400 ${
-                    mainImage === image ? "ring-2 ring-orange-500" : ""
+                  className={`min-w-[80px] h-20 rounded-xl overflow-hidden cursor-pointer transition-all border-2 ${
+                    mainImage === image
+                      ? "border-orange-500 ring-2 ring-orange-300"
+                      : "border-transparent hover:border-orange-400"
                   }`}
                 >
                   <img
                     src={image}
                     alt={`thumbnail-${index}`}
-                    className="object-cover w-full aspect-square"
+                    className="object-cover w-full h-full"
                   />
                 </div>
               ))}
@@ -123,8 +85,6 @@ const ProductDetail = () => {
             </span>
           </div>
 
-          <p className="mb-4 text-gray-700">{product.description}</p>
-
           {/* Price */}
           <p className="mb-2 text-3xl font-bold text-orange-500">
             ₹{product.price.toLocaleString()}
@@ -132,6 +92,23 @@ const ProductDetail = () => {
           <p className="mb-6 text-sm text-gray-500">
             {product.discountPercentage}% Off
           </p>
+
+          {/* Description */}
+          <p className="mb-6 text-gray-700">{product.description}</p>
+
+          {/* Features in an Aesthetic Box */}
+          {product.features && (
+            <div className="mb-6 p-5 bg-orange-50 rounded-xl shadow-md border border-orange-100">
+              <h3 className="mb-3 text-lg font-semibold text-orange-600">
+                Key Features
+              </h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-1">
+                {product.features.split(",").map((feature, index) => (
+                  <li key={index}>{feature.trim()}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <hr className="mb-6 border-gray-300" />
 
@@ -150,18 +127,8 @@ const ProductDetail = () => {
                 <td className="pr-6 font-medium text-gray-500">Stock</td>
                 <td>{product.stock}</td>
               </tr>
-              <tr>
-                <td className="pr-6 font-medium text-gray-500">Weight</td>
-                <td>{product.weight} kg</td>
-              </tr>
             </tbody>
           </table>
-
-          <div className="mb-6 text-sm text-gray-600">
-            <p>Warranty: {product.warrantyInformation}</p>
-            <p>Shipping: {product.shippingInformation}</p>
-            <p>Return Policy: {product.returnPolicy}</p>
-          </div>
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-4 w-full sm:flex-row">

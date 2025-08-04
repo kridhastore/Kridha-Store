@@ -44,7 +44,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/profile" element={<Profile />} />
 
-        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/product/:slug/:id" element={<ProductPage />} />
         <Route path="/checkout/:checkoutId" element={<CheckoutPage />} />
       </Routes>
 

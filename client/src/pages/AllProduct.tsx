@@ -1,28 +1,19 @@
-import axios from "axios";
 import ProductCard from "../components/ProductCard";
+import { fetchProducts } from "../store/fetch";
 import { useEffect, useState } from "react";
+import type { ProductInterface } from "../store/types";
 
 const AllProduct = () => {
-  interface Product {
-    id: number;
-    title: string;
-    price: number;
-    images: string[];
-  }
-
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<ProductInterface[]>([]);
 
   useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const fetchProduct = async () => {
-      try {
-        const response = await axios.get(`${apiUrl}/products`);
-        setProducts(response.data.products);
-      } catch (error) {
-        console.error("Error fetching products:", error);
+    const getProducts = async () => {
+      const data = await fetchProducts();
+      if (data) {
+        setProducts(data);
       }
     };
-    fetchProduct();
+    getProducts();
   }, []);
 
   return (
@@ -39,11 +30,12 @@ const AllProduct = () => {
       <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
         {products.slice(14, 30).map((product) => (
           <ProductCard
-            id={product.id}
-            key={product.id}
+            key={product._id}
+            _id={product._id}
+            slug={product.slug}
             title={product.title}
             price={product.price}
-            image={product.images[0]}
+            thumbnail={product.images[0]}
           />
         ))}
       </div>

@@ -1,30 +1,22 @@
 import ProductCard from "./ProductCard";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { fetchProducts } from "../store/fetch";
 import { useNavigate } from "react-router-dom";
+import type { ProductInterface } from "../store/types";
+import { useEffect, useState } from "react";
 
 function Bestseller() {
-  interface Product {
-    id: number;
-    title: string;
-    price: number;
-    images: string[];
-  }
-
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<ProductInterface[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const fetchProduct = async () => {
-      try {
-        const response = await axios.get(`${apiUrl}/products`);
-        setProducts(response.data.products);
-      } catch (error) {
-        console.error("Error fetching products:", error);
+    const getProducts = async () => {
+      const data = await fetchProducts();
+      if (data) {
+        setProducts(data);
       }
     };
-    fetchProduct();
+
+    getProducts();
   }, []);
 
   return (
@@ -48,13 +40,14 @@ function Bestseller() {
       {/* Product List */}
       <div className="overflow-x-auto md:overflow-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <div className="flex gap-2 justify-start items-stretch md:justify-center">
-          {products.slice(0, 4).map((product) => (
+          {products.slice(10, 14).map((product) => (
             <ProductCard
-              key={product.id}
-              id={product.id}
+              key={product._id}
+              _id={product._id}
+              slug={product.slug}
               title={product.title}
               price={product.price}
-              image={product.images[0]}
+              thumbnail={product.images[0]}
             />
           ))}
         </div>

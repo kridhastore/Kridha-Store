@@ -1,26 +1,21 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import ProductCard from "./ProductCard";
+import { fetchProducts } from "../store/fetch";
+import type { ProductInterface } from "../store/types";
 
 const NewArrivals = () => {
-  const [products, setProducts] = useState<
-    { id: number; title: string; price: number; images: string[] }[]
-  >([]);
+  const [products, setProducts] = useState<ProductInterface[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get(`${apiUrl}/products?limit=6`);
-        setProducts(response.data.products);
-      } catch (error) {
-        console.error("Error fetching products:", error);
+    const getProducts = async () => {
+      const data = await fetchProducts();
+      if (data) {
+        setProducts(data);
       }
     };
-
-    fetchProducts();
+    getProducts();
   }, []);
 
   return (
@@ -46,11 +41,12 @@ const NewArrivals = () => {
         <div className="flex gap-2 justify-start items-stretch md:justify-center">
           {products.slice(0, 4).map((product) => (
             <ProductCard
-              key={product.id}
-              id={product.id}
+              key={product._id}
+              _id={product._id}
+              slug={product.slug}
               title={product.title}
               price={product.price}
-              image={product.images[0]}
+              thumbnail={product.images[0]}
             />
           ))}
         </div>
