@@ -25,7 +25,6 @@ app.use(express.json());
 app.use("/api", routes);
 
 app.get("/", (_req, res) => {
-  console.log("✅ Root route hit");
   res.send("API is running");
 });
 
