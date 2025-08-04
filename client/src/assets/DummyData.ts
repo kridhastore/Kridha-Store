@@ -73,36 +73,41 @@ export const CollectionData = [
     id: 11,
     name: "Explosion Box",
     slug: "explosion-box",
-    image: "https://via.placeholder.com/535?text=Explosion+Box",
+    image:
+      "https://craftinggifts.in/wp-content/uploads/2025/05/Sweet-Snap-Box-1-300x300.png",
   },
   {
     id: 12,
     name: "Chocolate Bouquet",
     slug: "chocolate-bouquet",
-    image: "https://via.placeholder.com/535?text=Chocolate+Bouquet",
+    image:
+      "https://craftinggifts.in/wp-content/uploads/2025/05/SB-Snacks-14-3-2024-JPG-3-11-13-600x600-1-300x300.jpg.webp",
   },
   {
     id: 13,
     name: "Neckpiece",
     slug: "neckpiece",
-    image: "https://via.placeholder.com/535?text=Neckpiece",
+    image:
+      "https://www.boldpetals.in/cdn/shop/files/8393B196-8795-4EFE-9AC5-6F3C39B56E45.jpg?v=1747408924&width=360",
   },
   {
     id: 14,
     name: "Mens Collection",
     slug: "mens-collection",
-    image: "https://via.placeholder.com/535?text=Mens+Collection",
+    image: "https://m.media-amazon.com/images/I/71VFoklpW3L._SX679_.jpg",
   },
   {
     id: 15,
     name: "Keychains",
     slug: "keychains",
-    image: "https://via.placeholder.com/535?text=Keychains",
+    image:
+      "https://www.boldpetals.in/cdn/shop/collections/IMG-0311.jpg?v=1745181654&width=535",
   },
   {
     id: 16,
     name: "Picture Book",
     slug: "picture-book",
-    image: "https://via.placeholder.com/535?text=Picture+Book",
+    image:
+      "https://www.fnp.com//images/pr/l/v20250605153849/personalised-classic-magnetic-polaroid-gift-set_1.jpg",
   },
 ];

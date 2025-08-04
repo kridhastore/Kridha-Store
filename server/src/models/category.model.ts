@@ -5,7 +5,6 @@ const categorySchema = new mongoose.Schema<CategoryDocument>(
   {
     name: { type: String, required: true, unique: true },
     slug: { type: String, required: true, unique: true },
-    description: { type: String, required: true },
     image: { type: String, required: true },
   },
   { timestamps: true }

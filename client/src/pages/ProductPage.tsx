@@ -120,8 +120,8 @@ const ProductDetail = () => {
                 <td>{product.brand}</td>
               </tr>
               <tr>
-                <td className="pr-6 font-medium text-gray-500">Category</td>
-                <td>{product.category}</td>
+                <td className="pr-6 font-medium text-gray-500">collection </td>
+                <td>{product.collection}</td>
               </tr>
               <tr>
                 <td className="pr-6 font-medium text-gray-500">Stock</td>

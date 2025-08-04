@@ -15,7 +15,7 @@ const Collection = () => {
         </Link>
       </div>
 
-      {/* Collection Grid */}
+      {/* collectionsGrid */}
       <div className="grid grid-cols-3 gap-3 md:gap-6 md:grid-cols-4 lg:grid-cols-5">
         {CollectionData.slice(0, 6).map((collection, index) => (
           <Link

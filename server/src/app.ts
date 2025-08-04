@@ -14,7 +14,6 @@ const allowedOrigins = [
   "https://kridhastore.vercel.app",
   "https://admin.kridhastore.in",
   "https://kridhastoreadmin.vercel.app",
-
 ];
 
 app.use(
@@ -24,7 +23,6 @@ app.use(
     credentials: true,
   })
 );
-
 
 app.use(express.json());
 

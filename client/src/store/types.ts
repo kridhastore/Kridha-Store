@@ -11,7 +11,7 @@ export interface ProductInterface {
   title: string;
   slug: string;
   description: string;
-  category: string;
+  collection: string;
   brand: string;
   price: number;
   discountPercentage: number;

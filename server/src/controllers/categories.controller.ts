@@ -7,21 +7,41 @@ export const getCategories = async (req: Request, res: Response) => {
 };
 
 export const createCategory = (req: Request, res: Response) => {
-  const { name, slug, description, image } = req.body;
-  const category = new Category({ name, slug, description, image });
+  const { name, slug, image } = req.body;
+  const category = new Category({ name, slug, image });
   category.save();
   res.json({ message: "Category created successfully", category });
 };
 
-export const updateCategory = (req: Request, res: Response) => {
-  const { id } = req.params;
-  const { name, slug, description, image } = req.body;
-  const updateCategory = Category.findByIdAndUpdate(
-    id,
-    { name, slug, description, image },
-    { new: true }
-  );
-  res.json({ message: "Category updated successfully", updateCategory });
+export const updateCategory = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const { name, slug, image } = req.body;
+
+    const updatedCategory = await Category.findByIdAndUpdate(
+      id,
+      { name, slug, image },
+      { new: true }
+    );
+
+    if (!updatedCategory) {
+      res.status(404).json({ message: "Category not found" });
+      return; // ✅ ensures function exits
+    }
+
+    res.json({
+      message: "Category updated successfully",
+      category: updatedCategory,
+    });
+    return; // ✅ ensures all paths return
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error updating category" });
+    return; // ✅ ensures TS sees a return
+  }
 };
 
 export const deleteCategory = (req: Request, res: Response) => {
