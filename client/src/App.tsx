@@ -47,7 +47,7 @@ function App() {
 
         <Route path="/product/:slug/:id" element={<ProductPage />} />
         <Route path="/checkout/:checkoutId" element={<CheckoutPage />} />
-        <Route path="/collection/:slug/:id" element={<CollectionProduct />} />
+        <Route path="/collections/:slug/:id" element={<CollectionProduct />} />
       </Routes>
 
       <div className="h-[1px] w-full bg-gray-500" />
