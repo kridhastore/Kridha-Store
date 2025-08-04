@@ -11,7 +11,7 @@ export interface ProductInterface {
   title: string;
   slug: string;
   description: string;
-  collection: string;
+  category: string;
   brand: string;
   price: number;
   discountPercentage: number;
@@ -22,9 +22,6 @@ export interface ProductInterface {
   tags: string[];
   rating: number;
   reviews: Review[]; // You can replace 'any' with a Review interface if you have one
-  createdAt: string; // ISO date string
-  updatedAt: string; // ISO date string
-  __v: number;
   features: string;
 }
 
@@ -32,3 +29,10 @@ export type ProductCardProps = Pick<
   ProductInterface,
   "_id" | "title" | "slug" | "price" | "thumbnail"
 >;
+
+export interface CollectionInterface {
+  _id: string;
+  name: string;
+  slug: string;
+  image: string;
+}

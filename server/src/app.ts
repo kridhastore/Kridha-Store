@@ -14,6 +14,7 @@ const allowedOrigins = [
   "https://kridhastore.vercel.app",
   "https://admin.kridhastore.in",
   "https://kridhastoreadmin.vercel.app",
+  "http://localhost:3000",
 ];
 
 app.use(

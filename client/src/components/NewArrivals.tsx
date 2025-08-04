@@ -39,7 +39,7 @@ const NewArrivals = () => {
       {/* Product Grid / Scroll */}
       <div className="overflow-x-auto md:overflow-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <div className="flex gap-2 justify-start items-stretch md:justify-center">
-          {products.slice(0, 4).map((product) => (
+          {products.slice(22, 26).map((product) => (
             <ProductCard
               key={product._id}
               _id={product._id}

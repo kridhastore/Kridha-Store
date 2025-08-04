@@ -1,18 +1,26 @@
 import { Link } from "react-router-dom";
-import type { CollectionCardProps } from "../store/types";
+import type { CollectionInterface } from "../store/types";
 
-const CollectionCard = ({ slug, _id, image, name, index }) => {
+interface CollectionCardProps
+  extends CollectionInterface,
+    React.HTMLAttributes<HTMLDivElement> {}
+
+const CollectionCard = ({
+  slug,
+  _id,
+  image,
+  name,
+  className,
+  ...rest
+}: CollectionCardProps) => {
   return (
-    <div>
-      <Link
-        to={`/collections/${slug}`}
-        key={_id}
-        className={`
-      flex flex-col items-center gap-2 p-1 rounded-lg 
-      transition-all duration-300 cursor-pointer group hover:shadow-md hover:bg-gray-50
-      ${index === 5 ? "md:hidden" : ""} 
-    `}
-      >
+    <div
+      className={`flex flex-col items-center gap-2 p-1 rounded-lg transition-all duration-300 cursor-pointer group hover:shadow-md hover:bg-gray-50 ${
+        className || ""
+      }`}
+      {...rest}
+    >
+      <Link to={`/collections/${slug}`} key={_id} className="w-full">
         <img
           src={image}
           alt={slug}

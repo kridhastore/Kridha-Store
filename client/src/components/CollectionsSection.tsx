@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import { fetchCollections } from "../store/fetch";
 import { useEffect, useState } from "react";
-import CollectionCard from "../components/CollectionCard";
+import CollectionCard from "./CollectionCard";
 import type { CollectionInterface } from "../store/types";
 
-const Collections = () => {
+const Collection = () => {
   const [collectionData, setCollectionData] = useState<CollectionInterface[]>(
     []
   );
@@ -17,25 +18,35 @@ const Collections = () => {
     };
     getCollections();
   }, []);
-  return (
-    <div className="px-4 py-10 mx-auto max-w-7xl">
-      <h1 className="mb-8 text-3xl font-semibold text-center">
-        Our Collections
-      </h1>
 
+  return (
+    <section className=" mt-8">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-4 md:mb-6  ">
+        <h2 className="text-2xl font-semibold">🎨 Collections</h2>
+        <Link
+          to="/collections"
+          className="text-sm font-semibold text-gray-600 transition hover:text-black"
+        >
+          View All
+        </Link>
+      </div>
+
+      {/* collectionsGrid */}
       <div className="grid grid-cols-3 gap-3 md:gap-6 md:grid-cols-4 lg:grid-cols-5">
-        {collectionData.map((collection) => (
+        {collectionData.slice(0, 6).map((collection, index) => (
           <CollectionCard
             key={collection._id}
             _id={collection._id}
             name={collection.name}
             slug={collection.slug}
             image={collection.image}
+            className={`${index === 5 ? "md:hidden" : ""}`}
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Collections;
+export default Collection;

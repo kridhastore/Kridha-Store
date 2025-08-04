@@ -121,7 +121,7 @@ const ProductDetail = () => {
               </tr>
               <tr>
                 <td className="pr-6 font-medium text-gray-500">collection </td>
-                <td>{product.collection}</td>
+                <td>{product.category}</td>
               </tr>
               <tr>
                 <td className="pr-6 font-medium text-gray-500">Stock</td>
