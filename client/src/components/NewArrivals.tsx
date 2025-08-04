@@ -46,7 +46,7 @@ const NewArrivals = () => {
               slug={product.slug}
               title={product.title}
               price={product.price}
-              thumbnail={product.images[0]}
+              thumbnail={product.thumbnail}
             />
           ))}
         </div>

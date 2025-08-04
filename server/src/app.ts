@@ -9,23 +9,22 @@ const app = express();
 
 connectDB();
 
-// const allowedOrigins = [
-//   "https://kridhastore.in",
-//   "https://kridhastore.vercel.app",
-//   "https://admin.kridhastore.in",
-//   "https://kridhastoreadmin.vercel.app",
+const allowedOrigins = [
+  "https://kridhastore.in",
+  "https://kridhastore.vercel.app",
+  "https://admin.kridhastore.in",
+  "https://kridhastoreadmin.vercel.app",
 
-// ];
+];
 
-// app.use(
-//   cors({
-//     origin: allowedOrigins,
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
-app.use(cors());
 
 app.use(express.json());
 
