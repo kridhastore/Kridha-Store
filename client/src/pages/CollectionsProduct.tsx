@@ -14,10 +14,9 @@ const AllProduct = () => {
 
   useEffect(() => {
     const getCollections = async () => {
-      const data = await fetchCollections(); // ✅ wait for the Promise
-
+      const data = await fetchCollections();
       if (data) {
-        const collectionData = data.find((item) => item._id === id); // ✅ find on array
+        const collectionData = data.find((item) => item._id === id);
         if (collectionData) {
           setCollection(collectionData);
         }
@@ -25,19 +24,17 @@ const AllProduct = () => {
     };
 
     const getCollectionsProducts = async () => {
-      const data = await fetchProducts(); // ✅ wait for the Promise
-
+      const data = await fetchProducts();
       if (data) {
-        const collectionsProduct = data.find((item) => item.slug === slug); // ✅ find on array
-        if (collectionsProduct) {
-          setProducts(products);
-        }
+        // Filter products that belong to this collection
+        const collectionsProducts = data.filter((item) => item.slug === slug);
+        setProducts(collectionsProducts); // ✅ array of ProductInterface
       }
     };
 
     getCollections();
     getCollectionsProducts();
-  }, []);
+  }, [id, slug]);
 
   return (
     <section className="px-4 py-10 mx-auto max-w-7xl md:px-12">
