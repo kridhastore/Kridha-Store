@@ -14,6 +14,7 @@ export interface ProductDocument extends Document {
   description: string;
   features: string;
   category: string;
+  category_id: Object;
   brand: string;
   price: number;
   discountPercentage: number;

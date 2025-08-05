@@ -19,6 +19,7 @@ const productSchema = new Schema<ProductDocument>(
     description: { type: String, required: true },
     features: { type: String },
     category: { type: String, required: true },
+    category_id: { type: Schema.Types.ObjectId, required: true },
     brand: { type: String },
 
     price: { type: Number, required: true },

@@ -12,6 +12,7 @@ export interface ProductInterface {
   slug: string;
   description: string;
   category: string;
+  category_id: string;
   brand: string;
   price: number;
   discountPercentage: number;
