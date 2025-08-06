@@ -2,16 +2,20 @@ import ProductCard from "../components/ProductCard";
 import { fetchProducts } from "../store/fetch";
 import { useEffect, useState } from "react";
 import type { ProductInterface } from "../store/types";
+import ProductCardSkeleton from "../skeletons/ProductCardSkeleton";
 
 const AllProduct = () => {
   const [products, setProducts] = useState<ProductInterface[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getProducts = async () => {
+      setLoading(true);
       const data = await fetchProducts();
       if (data) {
         setProducts(data);
       }
+      setLoading(false);
     };
     getProducts();
   }, []);
@@ -28,16 +32,22 @@ const AllProduct = () => {
 
       {/* Product Grid */}
       <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
-        {products.slice(14, 30).map((product) => (
-          <ProductCard
-            key={product._id}
-            _id={product._id}
-            slug={product.slug}
-            title={product.title}
-            price={product.price}
-            thumbnail={product.thumbnail}
-          />
-        ))}
+        {loading
+          ? Array(8)
+              .fill(0)
+              .map((_, i) => <ProductCardSkeleton key={i} />)
+          : products
+              .slice(14, 30)
+              .map((product) => (
+                <ProductCard
+                  key={product._id}
+                  _id={product._id}
+                  slug={product.slug}
+                  title={product.title}
+                  price={product.price}
+                  thumbnail={product.thumbnail}
+                />
+              ))}
       </div>
     </section>
   );

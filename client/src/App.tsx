@@ -6,7 +6,7 @@ import Logout from "./auth/Logout";
 import Profile from "./auth/Profile";
 
 import Home from "./pages/Home";
-import Product from "./pages/ProductPage";
+import Product from "./pages/ProductDetailPage";
 import AllProduct from "./pages/AllProduct";
 import Cart from "./pages/Cart";
 import AboutUs from "./pages/AboutUs";
@@ -16,7 +16,7 @@ import TrackOrder from "./pages/TrackOrder";
 import ContactInformation from "./pages/ContactInformation";
 import Collections from "./pages/CollectionsPage";
 
-import ProductPage from "./pages/ProductPage";
+import ProductPage from "./pages/ProductDetailPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import CollectionProduct from "./pages/CollectionsProduct";
 

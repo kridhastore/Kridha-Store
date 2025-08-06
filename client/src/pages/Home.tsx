@@ -1,7 +1,7 @@
 import HeroSection from "../components/HeroSection";
 import CollectionsSection from "../components/CollectionsSection";
-import Bestseller from "../components/Bestseller";
-import NewArrivals from "../components/NewArrivals";
+import Bestseller from "../components/BestsellerSection";
+import NewArrivals from "../components/NewArrivalsSection";
 
 const Home = () => {
   return (

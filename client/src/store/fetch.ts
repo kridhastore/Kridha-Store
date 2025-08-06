@@ -7,7 +7,7 @@ export const fetchProducts = async (): Promise<
   ProductInterface[] | undefined
 > => {
   try {
-    const response = await axios.get(`${apiUrl}/products/all`);
+    const response = await axios.get(`${apiUrl}/api/products/all`);
     const products: ProductInterface[] = response.data.products; // ✅ array of Product
     return products;
   } catch (error) {
@@ -19,7 +19,7 @@ export const fetchCollections = async (): Promise<
   CollectionInterface[] | undefined
 > => {
   try {
-    const response = await axios.get(`${apiUrl}/categories/all`);
+    const response = await axios.get(`${apiUrl}/api/categories/all`);
     const collections: CollectionInterface[] = response.data.categories; // ✅ array of Product
     return collections;
   } catch (error) {
