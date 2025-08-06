@@ -94,13 +94,13 @@ const ProductDetail = () => {
           </p>
 
           {/* Description */}
-          <p className="mb-6 text-gray-700">{product.description}</p>
+          {/* <p className="mb-6 text-gray-700">{product.description}</p> */}
 
-          {/* Features in an Aesthetic Box */}
+          {/* Features */}
           {product.features && (
             <div className="mb-6 p-5 bg-orange-50 rounded-xl shadow-md border border-orange-100">
               <h3 className="mb-3 text-lg font-semibold text-orange-600">
-                Key Features
+                Description
               </h3>
               <ul className="list-disc list-inside text-gray-700 space-y-1">
                 {product.features.split(",").map((feature, index) => (
