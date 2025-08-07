@@ -34,7 +34,7 @@ const Sidebar = ({ showMenu, setShowMenu }: SidebarProps) => {
   return (
     <div
       onClick={() => setShowMenu(!showMenu)}
-      className={`fixed bg-white left-0 top-0 w-full h-full transform transition-transform duration-300 ease-in-out z-50 shadow-lg flex flex-col justify-between`}
+      className={`flex fixed top-0 left-0 z-50 flex-col justify-between w-full h-full bg-white shadow-lg transition-transform duration-300 ease-in-out transform`}
       style={{ transform: showMenu ? "translateX(0)" : "translateX(-100%)" }}
     >
       <div>
