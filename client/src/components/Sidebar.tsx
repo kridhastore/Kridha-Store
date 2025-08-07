@@ -2,6 +2,7 @@ import { RxCross1 } from "react-icons/rx";
 import { NavLink } from "react-router-dom";
 import "../styles/Sidebar.css";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { useEffect } from "react";
 
 type SidebarProps = {
   showMenu: boolean;
@@ -18,9 +19,22 @@ const Sidebar = ({ showMenu, setShowMenu }: SidebarProps) => {
     { to: "/contact-us", label: "Contact Us" },
   ];
 
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"; // cleanup
+    };
+  }, [showMenu]);
+
   return (
     <div
-      className={`fixed bg-white left-0 top-0 w-[75%] h-full transform transition-transform duration-300 ease-in-out z-50 shadow-lg flex flex-col justify-between`}
+      onClick={() => setShowMenu(!showMenu)}
+      className={`fixed bg-white left-0 top-0 w-full h-full transform transition-transform duration-300 ease-in-out z-50 shadow-lg flex flex-col justify-between`}
       style={{ transform: showMenu ? "translateX(0)" : "translateX(-100%)" }}
     >
       <div>
