@@ -24,7 +24,9 @@ const AllProduct = () => {
     <section className="px-4 py-10 mx-auto max-w-7xl md:px-12">
       {/* Title and Subtitle */}
       <div className="mb-10 text-center">
-        <h1 className="text-3xl font-bold md:text-4xl">🛍 All Products</h1>
+        <h1 className="text-3xl font-bold font-great-vibes md:text-4xl">
+          🛍 All Products
+        </h1>
         <p className="mt-2 text-sm text-gray-600 md:text-base">
           Explore our complete range of premium products
         </p>

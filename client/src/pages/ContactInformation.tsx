@@ -2,12 +2,12 @@ const ContactInformation = () => {
   return (
     <div className="min-h-[75vh] bg-white px-4 py-12 flex flex-col items-center">
       {/* Heading */}
-      <h1 className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-10 text-center">
+      <h1 className="mb-10 text-3xl font-semibold text-center text-gray-800 font-great-vibes sm:text-4xl">
         Contact Information
       </h1>
 
       {/* Info Block */}
-      <div className="max-w-2xl w-full text-center text-gray-700 space-y-4">
+      <div className="space-y-4 w-full max-w-2xl text-center text-gray-700">
         <p>
           <strong>Trade name:</strong> Kridha Craft Store
         </p>

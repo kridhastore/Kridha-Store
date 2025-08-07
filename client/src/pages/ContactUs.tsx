@@ -23,19 +23,19 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12 ">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full">
+    <div className="flex justify-center items-center px-4 py-12 min-h-screen">
+      <div className="grid grid-cols-1 gap-8 w-full max-w-6xl md:grid-cols-2">
         {/* Left Card: Info */}
-        <div className=" p-8 rounded-3xl shadow-xl">
-          <h1 className="text-3xl font-bold text-pink-700 mb-4">
+        <div className="p-8 rounded-3xl shadow-xl">
+          <h1 className="mb-4 text-3xl font-bold text-pink-700 font-great-vibes">
             We Hear You ❤️
           </h1>
           <span>
-            <p className="text-gray-700 mb-4">
+            <p className="mb-4 text-gray-700">
               If you've experienced any inconvenience, we're truly sorry. We
               care deeply about your experience and are here to make it right.
             </p>
-            <p className="text-gray-700 mb-4">
+            <p className="mb-4 text-gray-700">
               Your suggestions matter! If there's a feature, a product idea, or
               anything you'd like to see, we’d love to hear it.
             </p>
@@ -47,11 +47,11 @@ const ContactUs = () => {
         </div>
 
         {/* Right Card: Form */}
-        <div className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10">
-          <h1 className="text-3xl sm:text-4xl font-bold text-pink-700 mb-6 text-center">
+        <div className="p-8 bg-white rounded-3xl shadow-2xl sm:p-10">
+          <h1 className="mb-6 text-3xl font-bold text-center text-pink-700 sm:text-4xl">
             Contact Us
           </h1>
-          <p className="text-gray-600 text-center mb-8">
+          <p className="mb-8 text-center text-gray-600">
             We'd love to hear from you! Whether it's a question, feedback, or a
             custom order request — we're here to help.
           </p>
@@ -59,7 +59,7 @@ const ContactUs = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Name */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block mb-1 text-sm font-medium text-gray-700">
                 Name
               </label>
               <input
@@ -70,7 +70,7 @@ const ContactUs = () => {
                 } rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-300`}
               />
               {errors.name && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="mt-1 text-sm text-red-500">
                   {errors.name.message}
                 </p>
               )}
@@ -78,7 +78,7 @@ const ContactUs = () => {
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block mb-1 text-sm font-medium text-gray-700">
                 Email
               </label>
               <input
@@ -95,7 +95,7 @@ const ContactUs = () => {
                 } rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-300`}
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="mt-1 text-sm text-red-500">
                   {errors.email.message}
                 </p>
               )}
@@ -103,7 +103,7 @@ const ContactUs = () => {
 
             {/* Phone */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block mb-1 text-sm font-medium text-gray-700">
                 Phone Number
               </label>
               <input
@@ -120,7 +120,7 @@ const ContactUs = () => {
                 } rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-300`}
               />
               {errors.phone && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="mt-1 text-sm text-red-500">
                   {errors.phone.message}
                 </p>
               )}
@@ -128,7 +128,7 @@ const ContactUs = () => {
 
             {/* Message */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block mb-1 text-sm font-medium text-gray-700">
                 Message
               </label>
               <textarea
@@ -140,7 +140,7 @@ const ContactUs = () => {
                 } rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-300 resize-none`}
               />
               {errors.message && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="mt-1 text-sm text-red-500">
                   {errors.message.message}
                 </p>
               )}
@@ -149,13 +149,13 @@ const ContactUs = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-200"
+              className="px-6 py-3 w-full font-semibold text-white bg-pink-600 rounded-xl transition duration-200 hover:bg-pink-700"
             >
               Send Message
             </button>
           </form>
 
-          <p className="text-center text-sm text-gray-500 mt-6">
+          <p className="mt-6 text-sm text-center text-gray-500">
             Or email us at{" "}
             <a
               href="mailto:kridhacraftstore@gmail.com"

@@ -60,24 +60,24 @@ const Cart = () => {
   const total = subtotal + SHIPPING + HANDLING + tax;
 
   return (
-    <div className="min-h-screen bg-white px-4 py-8">
-      <h1 className="text-3xl font-semibold text-center mb-8 text-gray-800">
+    <div className="px-4 py-8 min-h-screen bg-white">
+      <h1 className="mb-8 text-3xl font-semibold text-center text-gray-800 font-great-vibes">
         Your Cart
       </h1>
 
       {cartItems.length === 0 ? (
         <p className="text-center text-gray-500">Your cart is empty.</p>
       ) : (
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="mx-auto space-y-6 max-w-4xl">
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="flex gap-4 items-center border-b pb-4"
+              className="flex gap-4 items-center pb-4 border-b"
             >
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-24 h-24 object-cover rounded-lg"
+                className="object-cover w-24 h-24 rounded-lg"
               />
               <div className="flex-1">
                 <h2 className="text-lg font-semibold text-gray-800">
@@ -87,7 +87,7 @@ const Cart = () => {
                   ₹{item.price} × {item.quantity} = ₹
                   {item.price * item.quantity}
                 </p>
-                <div className="flex items-center mt-2 gap-2">
+                <div className="flex gap-2 items-center mt-2">
                   <button
                     onClick={() => updateQuantity(item.id, -1)}
                     className="px-2 py-1 bg-gray-200 rounded"
@@ -112,12 +112,12 @@ const Cart = () => {
             </div>
           ))}
 
-          <div className="text-right mt-8 space-y-2 text-gray-700">
+          <div className="mt-8 space-y-2 text-right text-gray-700">
             <p>Subtotal: ₹{subtotal.toFixed(2)}</p>
             <p>Shipping: ₹{SHIPPING.toFixed(2)}</p>
             <p>Handling Fee: ₹{HANDLING.toFixed(2)}</p>
             <p>Tax (18%): ₹{tax.toFixed(2)}</p>
-            <h3 className="text-xl font-semibold text-gray-800 pt-2">
+            <h3 className="pt-2 text-xl font-semibold text-gray-800">
               Total: ₹{total.toFixed(2)}
             </h3>
             <button
@@ -126,7 +126,7 @@ const Cart = () => {
                 navigate("/checkout");
               }}
               disabled={cartItems.length === 0}
-              className="mt-4 px-6 py-3 bg-pink-600 hover:bg-pink-700 text-white rounded-full transition cursor-pointer"
+              className="px-6 py-3 mt-4 text-white bg-pink-600 rounded-full transition cursor-pointer hover:bg-pink-700"
             >
               Proceed to Checkout
             </button>

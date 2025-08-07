@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex sticky top-0 z-50 gap-8 justify-between px-6 md:px-20 items-center py-2 bg-white shadow-sm cursor-pointer min-h-16 md:gap-20">
+      <div className="flex sticky top-0 z-50 gap-8 justify-between items-center px-6 py-2 bg-white shadow-sm cursor-pointer md:px-20 min-h-16 md:gap-20">
         {/* Mobile Menu Icon */}
         <CiMenuBurger
           onClick={() => setShowMenu(!showMenu)}
@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="text-center kridha-logo">
           <h1
             onClick={() => navigate("/")}
-            className="text-3xl font-semibold cursor-pointer select-none md:text-4xl"
+            className="text-3xl font-semibold cursor-pointer select-none font-great-vibes md:text-4xl"
           >
             Kridha Store
           </h1>
@@ -87,8 +87,10 @@ const Navbar = () => {
       </div>
 
       {/* Promo Banner */}
-      <div className="p-2 text-xs text-center text-white bg-black">
-        <p>Free Shipping on all orders above Rs. 1000.</p>
+      <div className="px-6 py-0.5 w-full text-center text-white bg-gradient-to-r from-purple-700 via-pink-600 to-red-500 shadow-md">
+        <span className="text-sm font-semibold tracking-wide md:text-base">
+          🚚 Free Shipping on all orders above ₹1000.
+        </span>
       </div>
     </>
   );

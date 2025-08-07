@@ -26,7 +26,7 @@ const Collections = () => {
 
   return (
     <div className="px-4 py-10 mx-auto max-w-7xl">
-      <h1 className="mb-8 text-3xl font-semibold text-center">
+      <h1 className="mb-8 text-3xl font-semibold text-center font-great-vibes">
         Our Collections
       </h1>
 
