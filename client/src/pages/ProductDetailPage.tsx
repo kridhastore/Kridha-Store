@@ -44,8 +44,9 @@ const ProductDetail = () => {
     <div className="min-h-screen text-black bg-white">
       <div className="px-4 py-12 mx-auto max-w-7xl md:px-12 lg:px-24">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-          {/* Product Images */}
-          <div className="flex flex-col items-center">
+          {/* LEFT: Product Images + Buttons */}
+          <div className="flex flex-col items-center gap-4">
+            {/* Main Image */}
             <div className="relative w-full max-w-lg">
               <img
                 src={mainImage}
@@ -54,8 +55,9 @@ const ProductDetail = () => {
               />
             </div>
 
+            {/* Thumbnail Images */}
             {product.images.length > 1 && (
-              <div className="flex overflow-x-auto gap-4 mt-6 w-full max-w-lg scrollbar-hide">
+              <div className="flex overflow-x-auto gap-4 w-full max-w-lg scrollbar-hide">
                 {product.images.map((image, index) => (
                   <div
                     key={index}
@@ -75,51 +77,9 @@ const ProductDetail = () => {
                 ))}
               </div>
             )}
-          </div>
-
-          {/* Product Info */}
-          <div className="flex flex-col gap-1 justify-start md:gap-2">
-            <p className="tracking-widest uppercase">{product.brand}</p>
-            <h2 className="text-3xl font-bold md:text-3xl">{product.title}</h2>
-
-            {/* Price */}
-            <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f75c5c] via-[#fb7185] to-[#fee1dd] ">
-              ₹{product.price.toLocaleString()}
-            </p>
-
-            {/* Features */}
-            {product.features && (
-              <div className="p-5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
-                <h3 className="mb-3 text-lg font-semibold text-gray-800">
-                  Description
-                </h3>
-                <ul className="space-y-1 list-disc list-inside text-gray-600">
-                  {product.features.split(",").map((feature, index) => (
-                    <li key={index}>{feature.trim()}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Specs Table */}
-            <div className="px-2 mt-4 space-y-1 text-sm text-gray-600">
-              <div className="flex justify-between">
-                <span className="font-medium text-gray-500">
-                  Shipping Details
-                </span>
-                <span>After 7-10 days</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="font-medium text-gray-500">
-                  Return & Refund
-                </span>
-                <span>No Returns & Refunds allowed</span>
-              </div>
-            </div>
 
             {/* Action Buttons */}
-
-            <div className="flex flex-col gap-4 mt-6 w-full sm:flex-row">
+            <div className="flex flex-col gap-4 w-full max-w-lg sm:flex-row mt-2">
               <button
                 onClick={() => navigate(`/checkout/${id}`)}
                 className="flex-1 cursor-pointer py-3.5 px-6 rounded-md font-semibold border border-gray-300 bg-white text-gray-900 hover:bg-gray-100 hover:shadow transition-all duration-300"
@@ -135,11 +95,63 @@ const ProductDetail = () => {
               </button>
             </div>
           </div>
+
+          {/* RIGHT: Product Info */}
+          <div className="flex flex-col gap-3 justify-start">
+            <span>
+              <p className="tracking-widest uppercase text-sm text-gray-500">
+                {product.brand}
+              </p>
+              <h2 className="text-3xl font-bold">{product.title}</h2>
+            </span>
+
+            {/* Price */}
+            <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f75c5c] via-[#fb7185] to-[#fee1dd]">
+              ₹{product.price.toLocaleString()}
+            </p>
+
+            {/* Description */}
+            {product.features && (
+              <div className="p-5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+                <h3 className="mb-3 text-lg font-semibold text-gray-800">
+                  Description
+                </h3>
+                <ul className="space-y-1 list-disc list-outside pl-4 text-gray-600">
+                  {product.features.split(",").map((feature, index) => (
+                    <li key={index}>{feature.trim()}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Shipping Info */}
+            <div className="p-5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="mb-3 text-lg font-semibold text-gray-800">
+                Shipping
+              </h3>
+              <ul className="text-gray-600 list-disc list-outside space-y-1 pl-4">
+                <li>Estimated Delivery: 5–7 Working Days</li>
+                <li>Shipping Partner: BlueDart / Delhivery</li>
+                <li>Tracking ID will be shared after dispatch</li>
+              </ul>
+            </div>
+
+            {/* Return Policy */}
+            <div className="p-5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="mb-3 text-lg font-semibold text-gray-800">
+                Return & Refund
+              </h3>
+              <ul className="text-gray-600 list-disc list-outside space-y-1 pl-4">
+                <li>No returns or refunds once order is placed</li>
+                <li>Product is custom-made & non-refundable</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (
-          <div className="mt-20">
+          <div className="mt-10">
             <h3 className="mb-6 text-2xl font-bold text-center">
               You might also like
             </h3>
