@@ -16,7 +16,7 @@ function HeroSection() {
       <div className="absolute inset-0 bg-black opacity-70" />
 
       {/* Centered Content */}
-      <div className="flex absolute inset-0 justify-center items-center px-4">
+      <div className="flex absolute inset-0 justify-center md:justify-end items-center px-4 md:px-40">
         <div className="max-w-2xl text-center text-white">
           <h1 className="text-3xl font-bold tracking-wider md:text-7xl font-great-vibes">
             Handmade with love
@@ -24,7 +24,7 @@ function HeroSection() {
 
           <button
             onClick={() => navigate("/all-products")}
-            className="px-4 py-2 mt-2 font-sans text-xs font-bold text-red-600 bg-white rounded-lg shadow-lg cursor-pointer md:mt-5 md:tracking-widest md:text-sm"
+            className="px-4 py-2 mt-4 font-sans text-xs font-bold text-white bg-red-500 rounded-lg shadow-lg cursor-pointer md:mt-5 tracking-widest md:text-sm"
           >
             BEST OFFER OF THE DAY
           </button>
