@@ -1,12 +1,12 @@
 const ProductDetailSkeleton = () => {
   return (
-    <div className="px-4 py-12 min-h-screen bg-white md:px-12 lg:px-24 animate-pulse">
+    <div className="px-4 py-12 min-h-screen bg-white animate-pulse md:px-12 lg:px-24">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
         {/* Image Skeleton */}
         <div className="flex flex-col items-center">
-          <div className="w-full max-w-lg aspect-square bg-gray-200 rounded-2xl"></div>
-          <div className="flex gap-4 w-full mt-6 max-w-lg">
-            {Array(4)
+          <div className="w-full max-w-lg bg-gray-200 rounded-2xl aspect-square"></div>
+          <div className="flex gap-4 mt-6 w-full max-w-lg">
+            {Array(3)
               .fill(0)
               .map((_, i) => (
                 <div
@@ -19,19 +19,19 @@ const ProductDetailSkeleton = () => {
 
         {/* Info Skeleton */}
         <div className="flex flex-col justify-start space-y-4">
-          <div className="h-8 bg-gray-200 w-3/4 rounded"></div>
-          <div className="h-5 bg-gray-200 w-1/3 rounded"></div>
-          <div className="h-8 bg-gray-200 w-1/2 rounded"></div>
+          <div className="w-3/4 h-8 bg-gray-200 rounded"></div>
+          <div className="w-1/3 h-5 bg-gray-200 rounded"></div>
+          <div className="w-1/2 h-8 bg-gray-200 rounded"></div>
 
-          <div className="h-32 bg-gray-200 w-full rounded-xl mt-4"></div>
+          <div className="mt-4 w-full h-32 bg-gray-200 rounded-xl"></div>
 
-          <div className="space-y-3 mt-6">
+          <div className="mt-6 space-y-3">
             {Array(2)
               .fill(0)
               .map((_, i) => (
                 <div
                   key={i}
-                  className="h-10 bg-gray-200 w-full rounded-lg"
+                  className="w-full h-10 bg-gray-200 rounded-lg"
                 ></div>
               ))}
           </div>
