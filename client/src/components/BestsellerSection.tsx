@@ -25,7 +25,7 @@ function Bestseller() {
   return (
     <section className="my-8">
       {/* Header with Subtitle and View All */}
-      <div className="flex justify-between items-center mb-2">
+      <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-semibold">🔥 Best-sellers</h2>
         <button
           onClick={() => navigate("/all-products")}
