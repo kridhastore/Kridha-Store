@@ -8,10 +8,10 @@ const Home = () => {
     <>
       <HeroSection />
 
-      <div className="w-full h-full px-5 md:w-[80%] mx-auto">
-        <NewArrivals />
-
+      <div className="w-full h-full md:w-[80%] mx-auto">
         <CollectionsSection />
+
+        <NewArrivals />
 
         <Bestseller />
       </div>
