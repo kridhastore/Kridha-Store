@@ -88,7 +88,7 @@ const Navbar = () => {
 
       {/* Promo Banner */}
       <div className="px-6 py-0.5 w-full text-center text-white bg-gradient-to-r from-purple-700 via-pink-600 to-red-500 shadow-md">
-        <span className="text-sm font-semibold tracking-wide md:text-base">
+        <span className="text-xs font-semibold tracking-wide md:text-base">
           🚚 Free Shipping on all orders above ₹1000.
         </span>
       </div>
