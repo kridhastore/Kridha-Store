@@ -31,7 +31,7 @@ const ProductCard = ({
         <p className="tracking-widest">Rs. {price}.00</p>
       </div>
 
-      <button className="py-2 w-full rounded-lg border cursor-pointer">
+      <button className="flex-1 px-6 py-2 w-full font-semibold text-gray-900 bg-white rounded-md border border-gray-300 transition-all duration-300 cursor-pointer hover:bg-gray-100 hover:shadow">
         Buy Now
       </button>
     </div>
