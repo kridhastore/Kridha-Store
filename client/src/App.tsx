@@ -23,9 +23,12 @@ import CollectionProduct from "./pages/CollectionsProduct";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
 
       <Routes>
