@@ -130,7 +130,7 @@ const ProductDetail = () => {
                 Shipping
               </h3>
               <ul className="text-gray-600 list-disc list-outside space-y-1 pl-4">
-                <li>Estimated Delivery: 5–7 Working Days</li>
+                <li>Estimated Delivery: 7–10 Working Days</li>
                 <li>Shipping Partner: BlueDart / Delhivery</li>
                 <li>Tracking ID will be shared after dispatch</li>
               </ul>

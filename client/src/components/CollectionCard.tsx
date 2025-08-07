@@ -26,7 +26,9 @@ const CollectionCard = ({
           alt={slug}
           className="object-cover w-full rounded-md transition-transform duration-300 aspect-square group-hover:scale-105"
         />
-        <h2 className="text-xs font-semibold text-center md:text-sm">{name}</h2>
+        <h2 className="text-xs mt-2 font-semibold text-center md:text-sm">
+          {name}
+        </h2>
       </Link>
     </div>
   );
