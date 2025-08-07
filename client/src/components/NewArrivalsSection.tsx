@@ -26,13 +26,9 @@ const NewArrivals = () => {
     <>
       <section className="my-8">
         {/* Header with Subtitle and View All */}
-        <div className="flex justify-between items-center mb-4 md:mb-6">
-          <div>
-            <h2 className="text-2xl font-semibold">🆕 New Arrivals</h2>
-            <p className="text-sm font-medium tracking-wide text-gray-500 md:w-full w-50 md:text-base">
-              Freshly crafted just for you
-            </p>
-          </div>
+        <div className="flex justify-between items-center mb-2">
+          <h2 className="text-2xl font-semibold">🆕 New Arrivals</h2>
+
           <button
             onClick={() => navigate("/all-products")}
             className="text-sm font-semibold text-gray-600 transition hover:text-black"

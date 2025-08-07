@@ -26,7 +26,7 @@ const Collection = () => {
   return (
     <section className=" mt-8">
       {/* Header */}
-      <div className="flex justify-between items-center mb-4 md:mb-6  ">
+      <div className="flex justify-between items-center mb-3">
         <h2 className="text-2xl font-semibold">🎨 Collections</h2>
         <Link
           to="/collections"
